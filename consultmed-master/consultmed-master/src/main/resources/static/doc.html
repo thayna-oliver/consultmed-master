@@ -1,0 +1,2090 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ConsultMed - API para Agendamento de Consultas Médicas.</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+  <h1>ConsultMed - API para Agendamento de Consultas Médicas.</h1>
+    <div class="app-desc">Serviços que realiza um CRUD no banco de dados.</div>
+    <div class="app-desc">More information: <a href="https://github.com/betocoutinho">https://github.com/betocoutinho</a></div>
+    <div class="app-desc">Contact Info: <a href="robertogmcfilho@gmail.com">robertogmcfilho@gmail.com</a></div>
+    <div class="app-desc">Version: v1</div>
+    <div class="app-desc">BasePath:/betocoutinho/consultmed/v1</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Agendamentos">Agendamentos</a></h4>
+  <ul>
+  <li><a href="#agendamentosGet"><code><span class="http-method">get</span> /agendamentos</code></a></li>
+  <li><a href="#agendamentosIdDelete"><code><span class="http-method">delete</span> /agendamentos/{id}</code></a></li>
+  <li><a href="#agendamentosIdGet"><code><span class="http-method">get</span> /agendamentos/{id}</code></a></li>
+  <li><a href="#agendamentosIdPut"><code><span class="http-method">put</span> /agendamentos/{id}</code></a></li>
+  <li><a href="#agendamentosPost"><code><span class="http-method">post</span> /agendamentos</code></a></li>
+  </ul>
+  <h4><a href="#Consultorios">Consultorios</a></h4>
+  <ul>
+  <li><a href="#consultoriosGet"><code><span class="http-method">get</span> /consultorios</code></a></li>
+  <li><a href="#consultoriosIdDelete"><code><span class="http-method">delete</span> /consultorios/{id}</code></a></li>
+  <li><a href="#consultoriosIdGet"><code><span class="http-method">get</span> /consultorios/{id}</code></a></li>
+  <li><a href="#consultoriosIdPut"><code><span class="http-method">put</span> /consultorios/{id}</code></a></li>
+  <li><a href="#consultoriosPost"><code><span class="http-method">post</span> /consultorios</code></a></li>
+  </ul>
+  <h4><a href="#Endereços">Endereços</a></h4>
+  <ul>
+  <li><a href="#enderecosGet"><code><span class="http-method">get</span> /enderecos</code></a></li>
+  <li><a href="#enderecosIdDelete"><code><span class="http-method">delete</span> /enderecos/{id}</code></a></li>
+  <li><a href="#enderecosIdGet"><code><span class="http-method">get</span> /enderecos/{id}</code></a></li>
+  <li><a href="#enderecosIdPut"><code><span class="http-method">put</span> /enderecos/{id}</code></a></li>
+  <li><a href="#enderecosPost"><code><span class="http-method">post</span> /enderecos</code></a></li>
+  </ul>
+  <h4><a href="#EspecialidadeMedica">EspecialidadeMédica</a></h4>
+  <ul>
+  <li><a href="#especialidadesGet"><code><span class="http-method">get</span> /especialidades</code></a></li>
+  <li><a href="#especialidadesIdDelete"><code><span class="http-method">delete</span> /especialidades/{id}</code></a></li>
+  <li><a href="#especialidadesIdGet"><code><span class="http-method">get</span> /especialidades/{id}</code></a></li>
+  <li><a href="#especialidadesIdPut"><code><span class="http-method">put</span> /especialidades/{id}</code></a></li>
+  <li><a href="#especialidadesPost"><code><span class="http-method">post</span> /especialidades</code></a></li>
+  </ul>
+  <h4><a href="#Medicos">Médicos</a></h4>
+  <ul>
+  <li><a href="#medicosGet"><code><span class="http-method">get</span> /medicos</code></a></li>
+  <li><a href="#medicosIdDelete"><code><span class="http-method">delete</span> /medicos/{id}</code></a></li>
+  <li><a href="#medicosIdGet"><code><span class="http-method">get</span> /medicos/{id}</code></a></li>
+  <li><a href="#medicosIdPut"><code><span class="http-method">put</span> /medicos/{id}</code></a></li>
+  <li><a href="#medicosPost"><code><span class="http-method">post</span> /medicos</code></a></li>
+  </ul>
+  <h4><a href="#Pacientes">Pacientes</a></h4>
+  <ul>
+  <li><a href="#pacientesGet"><code><span class="http-method">get</span> /pacientes</code></a></li>
+  <li><a href="#pacientesIdDelete"><code><span class="http-method">delete</span> /pacientes/{id}</code></a></li>
+  <li><a href="#pacientesIdGet"><code><span class="http-method">get</span> /pacientes/{id}</code></a></li>
+  <li><a href="#pacientesIdPut"><code><span class="http-method">put</span> /pacientes/{id}</code></a></li>
+  <li><a href="#pacientesPost"><code><span class="http-method">post</span> /pacientes</code></a></li>
+  </ul>
+
+  <h1><a name="Agendamentos">Agendamentos</a></h1>
+  <div class="method"><a name="agendamentosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /agendamentos</code></pre></div>
+    <div class="method-summary">Retorna uma lista de agendamentos. (<span class="nickname">agendamentosGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de agendamentos de consulta médicas do banco de dados</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#fichaAgendamento">fichaAgendamento</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "statusConsulta" : "MARCADO",
+  "paciente" : {
+    "telefone" : "telefone",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 6,
+    "dataNascimento" : "2000-01-23",
+    "nomeDaMae" : "nomeDaMae"
+  },
+  "consultorio" : {
+    "nomeFantasia" : "nomeFantasia",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "id" : 0,
+    "cnpj" : "cnpj"
+  },
+  "medico" : {
+    "telefone" : "telefone",
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 1,
+    "dataNascimento" : "2000-01-23",
+    "crm" : "crm",
+    "especialidadeMedica" : {
+      "id" : 0,
+      "descricao" : "descricao"
+    }
+  },
+  "dataAgendamento" : "2000-01-23",
+  "id" : 0,
+  "dataConsulta" : "2000-01-23"
+}, {
+  "statusConsulta" : "MARCADO",
+  "paciente" : {
+    "telefone" : "telefone",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 6,
+    "dataNascimento" : "2000-01-23",
+    "nomeDaMae" : "nomeDaMae"
+  },
+  "consultorio" : {
+    "nomeFantasia" : "nomeFantasia",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "id" : 0,
+    "cnpj" : "cnpj"
+  },
+  "medico" : {
+    "telefone" : "telefone",
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 1,
+    "dataNascimento" : "2000-01-23",
+    "crm" : "crm",
+    "especialidadeMedica" : {
+      "id" : 0,
+      "descricao" : "descricao"
+    }
+  },
+  "dataAgendamento" : "2000-01-23",
+  "id" : 0,
+  "dataConsulta" : "2000-01-23"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="agendamentosIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /agendamentos/{id}</code></pre></div>
+    <div class="method-summary">deleta um agendamento. (<span class="nickname">agendamentosIdDelete</span>)</div>
+    <div class="method-notes">deleta um agendamento no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="agendamentosIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /agendamentos/{id}</code></pre></div>
+    <div class="method-summary">Retorna um agendamento pelo ID (<span class="nickname">agendamentosIdGet</span>)</div>
+    <div class="method-notes">Retorna um agendamento pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#fichaAgendamento">fichaAgendamento</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "statusConsulta" : "MARCADO",
+  "paciente" : {
+    "telefone" : "telefone",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 6,
+    "dataNascimento" : "2000-01-23",
+    "nomeDaMae" : "nomeDaMae"
+  },
+  "consultorio" : {
+    "nomeFantasia" : "nomeFantasia",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "id" : 0,
+    "cnpj" : "cnpj"
+  },
+  "medico" : {
+    "telefone" : "telefone",
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 1,
+    "dataNascimento" : "2000-01-23",
+    "crm" : "crm",
+    "especialidadeMedica" : {
+      "id" : 0,
+      "descricao" : "descricao"
+    }
+  },
+  "dataAgendamento" : "2000-01-23",
+  "id" : 0,
+  "dataConsulta" : "2000-01-23"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consultorio encontrado
+        <a href="#fichaAgendamento">fichaAgendamento</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="agendamentosIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /agendamentos/{id}</code></pre></div>
+    <div class="method-summary">Atualiza o agendamento pelo Id (<span class="nickname">agendamentosIdPut</span>)</div>
+    <div class="method-notes">Atualiza o agendamento pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#fichaAgendamento">fichaAgendamento</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#fichaAgendamento">fichaAgendamento</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "statusConsulta" : "MARCADO",
+  "paciente" : {
+    "telefone" : "telefone",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 6,
+    "dataNascimento" : "2000-01-23",
+    "nomeDaMae" : "nomeDaMae"
+  },
+  "consultorio" : {
+    "nomeFantasia" : "nomeFantasia",
+    "endereco" : {
+      "cidade" : "cidade",
+      "estado" : "estado",
+      "bairro" : "bairro",
+      "id" : 6,
+      "rua" : "rua",
+      "cep" : "cep"
+    },
+    "id" : 0,
+    "cnpj" : "cnpj"
+  },
+  "medico" : {
+    "telefone" : "telefone",
+    "cpf" : "cpf",
+    "nome" : "nome",
+    "id" : 1,
+    "dataNascimento" : "2000-01-23",
+    "crm" : "crm",
+    "especialidadeMedica" : {
+      "id" : 0,
+      "descricao" : "descricao"
+    }
+  },
+  "dataAgendamento" : "2000-01-23",
+  "id" : 0,
+  "dataConsulta" : "2000-01-23"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#fichaAgendamento">fichaAgendamento</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="agendamentosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /agendamentos</code></pre></div>
+    <div class="method-summary">Cria uma nova consulta médica. (<span class="nickname">agendamentosPost</span>)</div>
+    <div class="method-notes">Cria uma nova consulta médica no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#fichaAgendamento">fichaAgendamento</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consulta cadastrada com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar a consulta.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Consultorios">Consultorios</a></h1>
+  <div class="method"><a name="consultoriosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /consultorios</code></pre></div>
+    <div class="method-summary">Retorna uma lista de consultorios. (<span class="nickname">consultoriosGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de consultorios do banco de dados</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#consultorio">consultorio</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "nomeFantasia" : "nomeFantasia",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "id" : 0,
+  "cnpj" : "cnpj"
+}, {
+  "nomeFantasia" : "nomeFantasia",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "id" : 0,
+  "cnpj" : "cnpj"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="consultoriosIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /consultorios/{id}</code></pre></div>
+    <div class="method-summary">deleta um consultorio. (<span class="nickname">consultoriosIdDelete</span>)</div>
+    <div class="method-notes">deleta um consultorio no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="consultoriosIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /consultorios/{id}</code></pre></div>
+    <div class="method-summary">Retorna um consultorio pelo ID (<span class="nickname">consultoriosIdGet</span>)</div>
+    <div class="method-notes">Retorna um consultorio pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#consultorio">consultorio</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nomeFantasia" : "nomeFantasia",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "id" : 0,
+  "cnpj" : "cnpj"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consultorio encontrado
+        <a href="#consultorio">consultorio</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="consultoriosIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /consultorios/{id}</code></pre></div>
+    <div class="method-summary">Atualiza o consultorio pelo Id (<span class="nickname">consultoriosIdPut</span>)</div>
+    <div class="method-notes">Atualiza o consultorio pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#consultorio">consultorio</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#consultorio">consultorio</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "nomeFantasia" : "nomeFantasia",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "id" : 0,
+  "cnpj" : "cnpj"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#consultorio">consultorio</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="consultoriosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /consultorios</code></pre></div>
+    <div class="method-summary">Cria um novo consultorio. (<span class="nickname">consultoriosPost</span>)</div>
+    <div class="method-notes">Cria um novo consultorio no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#consultorio">consultorio</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consultorio cadastrado com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar o consultorio.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Endereços">Endereços</a></h1>
+  <div class="method"><a name="enderecosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /enderecos</code></pre></div>
+    <div class="method-summary">Retorna uma lista de endereços. (<span class="nickname">enderecosGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de endereços do banco de dados.</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#endereco">endereco</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "cidade" : "cidade",
+  "estado" : "estado",
+  "bairro" : "bairro",
+  "id" : 6,
+  "rua" : "rua",
+  "cep" : "cep"
+}, {
+  "cidade" : "cidade",
+  "estado" : "estado",
+  "bairro" : "bairro",
+  "id" : 6,
+  "rua" : "rua",
+  "cep" : "cep"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista de endereços.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="enderecosIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /enderecos/{id}</code></pre></div>
+    <div class="method-summary">deleta um endereço. (<span class="nickname">enderecosIdDelete</span>)</div>
+    <div class="method-notes">deleta um endereço no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="enderecosIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /enderecos/{id}</code></pre></div>
+    <div class="method-summary">Retorna um endereço pelo ID (<span class="nickname">enderecosIdGet</span>)</div>
+    <div class="method-notes">Retorna um endereço pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#endereco">endereco</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "cidade" : "cidade",
+  "estado" : "estado",
+  "bairro" : "bairro",
+  "id" : 6,
+  "rua" : "rua",
+  "cep" : "cep"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    endereço encontrado.
+        <a href="#endereco">endereco</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="enderecosIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /enderecos/{id}</code></pre></div>
+    <div class="method-summary">Atualiza o endereço pelo Id (<span class="nickname">enderecosIdPut</span>)</div>
+    <div class="method-notes">Atualiza o endereço pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#endereco">endereco</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#endereco">endereco</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "cidade" : "cidade",
+  "estado" : "estado",
+  "bairro" : "bairro",
+  "id" : 6,
+  "rua" : "rua",
+  "cep" : "cep"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#endereco">endereco</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="enderecosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /enderecos</code></pre></div>
+    <div class="method-summary">Cria um novo endereço. (<span class="nickname">enderecosPost</span>)</div>
+    <div class="method-notes">Cria um novo endereço no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#endereco">endereco</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Endereço cadastrado com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar o Endereço.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="EspecialidadeMedica">EspecialidadeMedica</a></h1>
+  <div class="method"><a name="especialidadesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /especialidades</code></pre></div>
+    <div class="method-summary">Retorna uma lista de especialidade médica. (<span class="nickname">especialidadesGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de especialidade médica do banco de dados</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#especialidadeMedica">especialidadeMedica</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "id" : 0,
+  "descricao" : "descricao"
+}, {
+  "id" : 0,
+  "descricao" : "descricao"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="especialidadesIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /especialidades/{id}</code></pre></div>
+    <div class="method-summary">deleta uma especialidade médica. (<span class="nickname">especialidadesIdDelete</span>)</div>
+    <div class="method-notes">deleta uma especialidade médica no banco de dados.</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="especialidadesIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /especialidades/{id}</code></pre></div>
+    <div class="method-summary">Retorna uma especialidade médica pelo ID (<span class="nickname">especialidadesIdGet</span>)</div>
+    <div class="method-notes">Retorna uma especialidade médica pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#especialidadeMedica">especialidadeMedica</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : 0,
+  "descricao" : "descricao"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consultorio encontrado
+        <a href="#especialidadeMedica">especialidadeMedica</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="especialidadesIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /especialidades/{id}</code></pre></div>
+    <div class="method-summary">Atualiza a especialidade médica pelo Id (<span class="nickname">especialidadesIdPut</span>)</div>
+    <div class="method-notes">Atualiza a especialidade médica pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#especialidadeMedica">especialidadeMedica</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#especialidadeMedica">especialidadeMedica</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "id" : 0,
+  "descricao" : "descricao"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#especialidadeMedica">especialidadeMedica</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="especialidadesPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /especialidades</code></pre></div>
+    <div class="method-summary">Cria um nova especialidade médica. (<span class="nickname">especialidadesPost</span>)</div>
+    <div class="method-notes">Cria um nova especialidade médica no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#especialidadeMedica">especialidadeMedica</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Especialidade médica cadastrado com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar a especialidade médica.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Medicos">Médicos</a></h1>
+  <div class="method"><a name="medicosGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /medicos</code></pre></div>
+    <div class="method-summary">Retorna uma lista de médicos. (<span class="nickname">medicosGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de médicos do banco de dados</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#medico">medico</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
+}, {
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="medicosIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /medicos/{id}</code></pre></div>
+    <div class="method-summary">deleta um médico. (<span class="nickname">medicosIdDelete</span>)</div>
+    <div class="method-notes">deleta um médico no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="medicosIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /medicos/{id}</code></pre></div>
+    <div class="method-summary">Retorna um médico pelo ID (<span class="nickname">medicosIdGet</span>)</div>
+    <div class="method-notes">Retorna um médico pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#medico">medico</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    médico encontrado
+        <a href="#medico">medico</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="medicosIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /medicos/{id}</code></pre></div>
+    <div class="method-summary">Atualiza o médico pelo Id (<span class="nickname">medicosIdPut</span>)</div>
+    <div class="method-notes">Atualiza o médico pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#medico">medico</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#medico">medico</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "telefone" : "telefone",
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 1,
+  "dataNascimento" : "2000-01-23",
+  "crm" : "crm",
+  "especialidadeMedica" : {
+    "id" : 0,
+    "descricao" : "descricao"
+  }
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#medico">medico</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="medicosPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /medicos</code></pre></div>
+    <div class="method-summary">Registra um novo médico. (<span class="nickname">medicosPost</span>)</div>
+    <div class="method-notes">Cria um médico no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#medico">medico</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Médico cadastrado com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar o Médico.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Pacientes">Pacientes</a></h1>
+  <div class="method"><a name="pacientesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pacientes</code></pre></div>
+    <div class="method-summary">Retorna uma lista de pacientes. (<span class="nickname">pacientesGet</span>)</div>
+    <div class="method-notes">Retorna uma lista de pacientes do banco de dados</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#paciente">paciente</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "telefone" : "telefone",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 6,
+  "dataNascimento" : "2000-01-23",
+  "nomeDaMae" : "nomeDaMae"
+}, {
+  "telefone" : "telefone",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 6,
+  "dataNascimento" : "2000-01-23",
+  "nomeDaMae" : "nomeDaMae"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    lista retornada com sucesso.
+        
+    <h4 class="field-label">400</h4>
+    Erro ao solicitar a lista.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pacientesIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /pacientes/{id}</code></pre></div>
+    <div class="method-summary">deleta um paciente. (<span class="nickname">pacientesIdDelete</span>)</div>
+    <div class="method-notes">deleta um paciente no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    exclusão realizada com sucesso
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Id não encontrado
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pacientesIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /pacientes/{id}</code></pre></div>
+    <div class="method-summary">Retorna um paciente pelo ID (<span class="nickname">pacientesIdGet</span>)</div>
+    <div class="method-notes">Retorna um paciente pelo ID no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#paciente">paciente</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "telefone" : "telefone",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 6,
+  "dataNascimento" : "2000-01-23",
+  "nomeDaMae" : "nomeDaMae"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Consultorio encontrado
+        <a href="#paciente">paciente</a>
+    <h4 class="field-label">404</h4>
+    Esse ID não foi encontrado.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pacientesIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /pacientes/{id}</code></pre></div>
+    <div class="method-summary">Atualiza um paciente pelo Id (<span class="nickname">pacientesIdPut</span>)</div>
+    <div class="method-notes">Atualiza um paciente pelo id no banco de dados</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: int64</div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#paciente">paciente</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#paciente">paciente</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "telefone" : "telefone",
+  "endereco" : {
+    "cidade" : "cidade",
+    "estado" : "estado",
+    "bairro" : "bairro",
+    "id" : 6,
+    "rua" : "rua",
+    "cep" : "cep"
+  },
+  "cpf" : "cpf",
+  "nome" : "nome",
+  "id" : 6,
+  "dataNascimento" : "2000-01-23",
+  "nomeDaMae" : "nomeDaMae"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Atualização realizada
+        <a href="#paciente">paciente</a>
+    <h4 class="field-label">400</h4>
+    Esse ID não existe.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção Lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="pacientesPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /pacientes</code></pre></div>
+    <div class="method-summary">Cria um novo paciente. (<span class="nickname">pacientesPost</span>)</div>
+    <div class="method-notes">Cria um novo paciente no banco de dados.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#paciente">paciente</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Paciente cadastrado com sucesso.
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    erro ao cadastrar o Paciente.
+        <a href="#"></a>
+    <h4 class="field-label">5XX</h4>
+    Exceção lançada.
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#consultorio"><code>consultorio</code></a></li>
+    <li><a href="#endereco"><code>endereco</code></a></li>
+    <li><a href="#especialidadeMedica"><code>especialidadeMedica</code></a></li>
+    <li><a href="#fichaAgendamento"><code>fichaAgendamento</code></a></li>
+    <li><a href="#medico"><code>medico</code></a></li>
+    <li><a href="#paciente"><code>paciente</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="consultorio"><code>consultorio</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>objeto referente aos dados do consultorio médico.</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">endereco </div><div class="param-desc"><span class="param-type"><a href="#endereco">endereco</a></span>  </div>
+<div class="param">nomeFantasia </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cnpj </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="endereco"><code>endereco</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Endereço como rua, cep, estado...</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">rua </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">bairro </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cidade </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">estado </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cep </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="especialidadeMedica"><code>especialidadeMedica</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>É a area de atuação do médico</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">descricao </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="fichaAgendamento"><code>fichaAgendamento</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>ficha de agendamento da consulta médica.</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">paciente </div><div class="param-desc"><span class="param-type"><a href="#paciente">paciente</a></span>  </div>
+<div class="param">medico </div><div class="param-desc"><span class="param-type"><a href="#medico">medico</a></span>  </div>
+<div class="param">especialidadeMedica </div><div class="param-desc"><span class="param-type"><a href="#especialidadeMedica">especialidadeMedica</a></span>  </div>
+<div class="param">consultorio </div><div class="param-desc"><span class="param-type"><a href="#consultorio">consultorio</a></span>  </div>
+<div class="param">dataAgendamento </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">dataConsulta </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">statusConsulta </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">MARCADO</div><div class="param-enum">CANCELADO</div><div class="param-enum">REMARCADO</div><div class="param-enum">REALIZADA</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="medico"><code>medico</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Objeto referente ao médico</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">nome </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dataNascimento </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">cpf </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">endereco </div><div class="param-desc"><span class="param-type"><a href="#endereco">endereco</a></span>  </div>
+<div class="param">telefone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">crm </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">especialidadeMedica </div><div class="param-desc"><span class="param-type"><a href="#especialidadeMedica">especialidadeMedica</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="paciente"><code>paciente</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Objeto referente aos pacientes</div>
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">nome </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dataNascimento </div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span>  format: date</div>
+<div class="param">nomeDaMae </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">cpf </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">endereco </div><div class="param-desc"><span class="param-type"><a href="#endereco">endereco</a></span>  </div>
+<div class="param">telefone </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

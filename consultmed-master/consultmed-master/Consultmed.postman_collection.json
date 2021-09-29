@@ -1,0 +1,765 @@
+{
+	"info": {
+		"_postman_id": "c710fd34-30f2-4c87-80c1-50371c7df14f",
+		"name": "Consultmed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Especialidade Médica",
+			"item": [
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \n        \"descricao\": \"Angiologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"descricao\": \"Dermatologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço",
+			"item": [
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"descricao\": \"Dermatologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Médico",
+			"item": [
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/medicos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"telefone\" : \"90909054\",\n  \"cpf\" : \"025465215\",\n  \"nome\" : \"Rafael Siqueira\",\n  \"dataNascimento\" : \"2000-01-23\",\n  \"crm\" : \"2321541\",\n  \"especialidadeMedica\" : {\n        \"id\": 4,\n        \"descricao\": \"Plástica\"\n    },\n    \"endereco\": {\n        \"rua\": \"Rua Quimera\",\n        \"bairro\": \"Ouro-Preto\",\n        \"cidade\": \"Olinda\",\n        \"estado\": \"Pernambuco\",\n        \"cep\": \"53370627\"\n    }\n    \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/medicos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/medicos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"medicos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 3,\n        \"nome\": \"Rafael Siqueira campos\",\n        \"dataNascimento\": \"2000-01-23\",\n        \"cpf\": \"025465215\",\n        \"endereco\": {\n            \"id\": 4,\n            \"rua\": \"Rua Quimera\",\n            \"bairro\": \"Ouro-Preto\",\n            \"cidade\": \"Olinda\",\n            \"estado\": \"Pernambuco\",\n            \"cep\": \"53370627\"\n        },\n        \"telefone\": \"90909054\",\n        \"crm\": \"2321541\",\n        \"especialidadeMedica\": {\n            \"id\": 4,\n            \"descricao\": \"Plástica\"\n        }\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/medicos/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"medicos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/medicos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"medicos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultorio",
+			"item": [
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/consultorios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"consultorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeFantasia\" : \"Consultorio postman\",\n  \"endereco\" : {\n    \"cidade\" : \"Recife\",\n    \"estado\" : \"Paraiba\",\n    \"bairro\" : \"Parnaiba\",\n    \"rua\" : \"Costa silva\",\n    \"cep\" : \"545121\"\n  },\n  \"cnpj\" : \"545121\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/consultorios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"consultorios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/consultorios/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"consultorios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"descricao\": \"Dermatologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/especialidades/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"especialidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/pacientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"telefone\" : \"811254\",\n  \"endereco\" : {\n    \"cidade\" : \"Olinda\",\n    \"estado\" : \"Pernambuco\",\n    \"bairro\" : \"ouro verde\",\n    \"rua\" : \"Rua sei lá\",\n    \"cep\" : \"545121\"\n  },\n  \"cpf\" : \"2315454\",\n  \"nome\" : \"Roberto\",\n  \"dataNascimento\" : \"2000-01-23\",\n  \"nomeDaMae\" : \"tia neuza\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/pacientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/pacientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"pacientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Roberto\",\n    \"dataNascimento\": \"2000-01-23\",\n    \"cpf\": \"2315454\",\n    \"endereco\": {\n        \"id\": 7,\n        \"rua\": \"Rua sei lá\",\n        \"bairro\": \"ouro verde\",\n        \"cidade\": \"Olinda\",\n        \"estado\": \"Pernambuco\",\n        \"cep\": \"545121\"\n    },\n    \"telefone\": \"811254\",\n    \"nomeDaMae\": \"tia neuza\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/pacientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"pacientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/pacientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"pacientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ficha de Agendamento",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paciente\": {\n        \"id\": 3,\n        \"nome\": \"Roberto\",\n        \"dataNascimento\": \"2000-01-23\",\n        \"cpf\": \"2315454\",\n        \"endereco\": {\n            \"id\": 9,\n            \"rua\": \"Rua sei lá\",\n            \"bairro\": \"ouro verde\",\n            \"cidade\": \"Olinda\",\n            \"estado\": \"Pernambuco\",\n            \"cep\": \"545121\"\n        },\n        \"telefone\": \"811254\",\n        \"nomeDaMae\": \"tia neuza\"\n    },\n    \"medico\": {\n        \"id\": 3,\n        \"nome\": \"Rafael Siqueira campos\",\n        \"dataNascimento\": \"2000-01-23\",\n        \"cpf\": \"025465215\",\n        \"endereco\": {\n            \"id\": 4,\n            \"rua\": \"Rua Quimera\",\n            \"bairro\": \"Ouro-Preto\",\n            \"cidade\": \"Olinda\",\n            \"estado\": \"Pernambuco\",\n            \"cep\": \"53370627\"\n        },\n        \"telefone\": \"90909054\",\n        \"crm\": \"2321541\",\n        \"especialidadeMedica\": {\n            \"id\": 4,\n            \"descricao\": \"Plástica\"\n        }\n    },\n    \"especialidade\": {\n        \"id\": 3,\n        \"descricao\": \"Vascular\"\n    },\n    \"consultorio\": {\n        \"id\": 2,\n        \"endereco\": {\n            \"id\": 5,\n            \"rua\": \"Costa silva\",\n            \"bairro\": \"Parnaiba\",\n            \"cidade\": \"Olinda\",\n            \"estado\": \"Paraiba\",\n            \"cep\": \"545121\"\n        },\n        \"nomeFantasia\": \"Consultorio Ferrer\",\n        \"cnpj\": \"54512121\"\n    },\n    \"dataAgendamento\": \"2018-02-24\",\n    \"dataConsulta\": \"2018-05-12\",\n    \"statusConsulta\": \"MARCADO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/agendamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"agendamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/agendamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"agendamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/agendamentos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"agendamentos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"descricao\": \"Dermatologia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/agendamentos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"agendamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/consultmed/v1/agendamentos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consultmed",
+								"v1",
+								"agendamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

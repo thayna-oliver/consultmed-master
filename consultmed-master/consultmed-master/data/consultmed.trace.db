@@ -1,0 +1,3 @@
+2021-09-26 16:16:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "MEDICO[*] SELECT * FROM ESPECIALIDADE_MEDICA"; expected "MERGE"; SQL statement:
+MEDICO SELECT * FROM ESPECIALIDADE_MEDICA [42001-200]
